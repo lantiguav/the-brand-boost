@@ -1,10 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-
+import { NavigationLinkType } from '@/types/common'
 import { Link } from '../Link'
 
-export const Burger = ({ links }) => {
+type BurgerProps = {
+  links: NavigationLinkType[]
+}
+
+export const Burger = ({ links }: BurgerProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -17,7 +21,7 @@ export const Burger = ({ links }) => {
 
   }, [isOpen])
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement|HTMLDivElement>) => {
     setIsOpen(!isOpen)
   }
 

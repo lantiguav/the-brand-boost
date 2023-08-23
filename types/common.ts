@@ -3,13 +3,19 @@ export type ImageType = {
   url: string
   alt?: string
   title?: string
-  width: number,
-  height: number,
+  width: number
+  height: number
 }
 
 export type ServiceType = {
-  id: string,
-  name: string,
-  description: string,
+  id: string
+  name: string
+  description: string
   icon: ImageType
+}
+
+export type NavigationLinkType = {
+  text: string
+  href: string
+  isCta?: boolean
 }

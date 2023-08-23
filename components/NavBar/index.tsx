@@ -2,7 +2,9 @@ import { Wrapper } from '../Wrapper'
 import { Link } from '../Link'
 import { Burger } from './Burger'
 
-const links = [
+import { NavigationLinkType } from '@/types/common'
+
+const links: NavigationLinkType[] = [
   {
     text: 'Servicios',
     href: '#',
@@ -27,7 +29,7 @@ export const NavBar = () => {
     <header className='w-full z-20'>
       <Wrapper className='flex justify-between py-2'>
         <div className='flex items-center'>The Brand Boost</div>
-        <Burger links={links}/>
+        <Burger links={links} />
         <ul className='flex-row gap-6 uppercase hidden sm:flex'>
           {links.map((link) => (
             <li key={link.text} className='flex items-center'>
