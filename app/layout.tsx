@@ -22,8 +22,8 @@ const opensSans = OpenSans({ weight: ['400', '700'], subsets: ['latin'], variabl
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang='en'>
-      <body className={`${alice.variable} ${opensSans.variable} font-sans overflow-x-hidden`}>
+    <html lang='en' className='overflow-x-clip'>
+      <body className={`${alice.variable} ${opensSans.variable} font-sans relative overflow-x-clip`}>
         <NavBar />
         <main>{children}</main>
         <Footer />

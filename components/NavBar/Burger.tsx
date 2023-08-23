@@ -13,11 +13,11 @@ export const Burger = ({ links }: BurgerProps) => {
 
   useEffect(() => {
     if(isOpen) {
-      document.querySelector('body')?.classList.add('overflow-hidden', 'sm:overflow-visible')
+      document.querySelector('body')?.classList.add('h-screen', 'overflow-y-clip', 'sm:overflow-y-visible')
       return;
     }
 
-    document.querySelector('body')?.classList.remove('overflow-hidden','sm:overflow-visible')
+    document.querySelector('body')?.classList.remove('h-screen', 'overflow-y-clip','sm:overflow-y-visible')
 
   }, [isOpen])
 
