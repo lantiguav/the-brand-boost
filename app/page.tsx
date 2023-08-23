@@ -11,6 +11,11 @@ query MyQuery {
     id
     subcopy
     title
+    image {
+      id
+      url
+      alt
+    }
   }
 }`
 
