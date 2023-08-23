@@ -2,25 +2,22 @@ import Image from 'next/image'
 
 import { Wrapper } from '../Wrapper'
 import { Link } from '../Link'
+import { ImageType } from '@/types/common'
 
 type HeroProps = {
   title: string
   subcopy: string
-  ctaText: string
-  ctaLink: string
-  image: {
-    id: string
-    url: string
-    alt?: string
-    title?: string
-  }
+  cta: {
+    text: string,
+    url: string,
+  }[],
+  image: ImageType
 }
 
 export const Hero = ({
   title,
   subcopy,
-  ctaText,
-  ctaLink,
+  cta,
   image,
 }: HeroProps) => {
   return (
@@ -31,8 +28,8 @@ export const Hero = ({
             {title}
           </h1>
           <p className='mb-4 mt-4 sm:mt-14 opacity-80'>{subcopy}</p>
-          <Link href={ctaLink} variant='button-solid' className='uppercase'>
-            {ctaText}
+          <Link href={cta[0].url} variant='button-solid' className='uppercase' target='_blank'>
+            {cta[0].text}
           </Link>
         </div>
         <div className='basis-1/2'>
@@ -41,8 +38,8 @@ export const Hero = ({
             src={image.url}
             title={image.title}
             alt={image.alt ?? ''}
-            width={50}
-            height={50}
+            width={image.width}
+            height={image.height}
           />
         </div>
       </Wrapper>
