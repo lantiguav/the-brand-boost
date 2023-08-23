@@ -26,7 +26,7 @@ export const Section = ({ htmlId, title, image, content, reverseLayout }: Sectio
         <div className='grow'>
           <h2 className='text-orange-dark text-5xl font-serif mb-7'>{title}</h2>
           <div
-            className='prose prose-p:my-2 text-black opacity-80'
+            className='prose prose-p:my-2 text-black opacity-80 prose-img:w-12 prose-img:h-12 prose-img:m-0 prose-img:mr-6 prose-a:inline-block'
             dangerouslySetInnerHTML={{ __html: content }}></div>
         </div>
       </Wrapper>
