@@ -19,3 +19,10 @@ export type NavigationLinkType = {
   href: string
   isCta?: boolean
 }
+
+export type SectionType = {
+  htmlId: string
+  title: string
+  image?: ImageType
+  content: string
+}

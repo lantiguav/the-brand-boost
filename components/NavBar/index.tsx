@@ -7,15 +7,15 @@ import { NavigationLinkType } from '@/types/common'
 const links: NavigationLinkType[] = [
   {
     text: 'Servicios',
-    href: '#',
+    href: '#servicios',
   },
   {
-    text: 'Sobre mi',
-    href: '#',
+    text: 'Nosotros',
+    href: '#nosotros',
   },
   {
     text: 'Contacto',
-    href: '#',
+    href: '#contacto',
   },
   {
     text: 'Agendar cita',

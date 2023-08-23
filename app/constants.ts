@@ -18,7 +18,7 @@ query PageQuery {
       title
     }
     servicesSection {
-      id
+      htmlId
       title
       services {
         id
@@ -32,6 +32,19 @@ query PageQuery {
           height
         }
         description
+      }
+    }
+    sections {
+      htmlId
+      content(markdown: true)
+      title
+      image {
+        alt
+        title
+        url
+        width
+        id
+        height
       }
     }
   }
