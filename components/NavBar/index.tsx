@@ -1,33 +1,45 @@
-import React from 'react'
 import { Wrapper } from '../Wrapper'
 import { Link } from '../Link'
+import { Burger } from './Burger'
+
+const links = [
+  {
+    text: 'Servicios',
+    href: '#',
+  },
+  {
+    text: 'Sobre mi',
+    href: '#',
+  },
+  {
+    text: 'Contacto',
+    href: '#',
+  },
+  {
+    text: 'Agendar cita',
+    href: 'https://thebrandboost.simplybook.me/v2/',
+    isCta: true,
+  },
+]
 
 export const NavBar = () => {
   return (
-    <header className='w-full'>
+    <header className='w-full z-20'>
       <Wrapper className='flex justify-between py-2'>
         <div className='flex items-center'>The Brand Boost</div>
+        <Burger links={links}/>
         <ul className='flex-row gap-6 uppercase hidden sm:flex'>
-          <li className='flex items-center'>
-            <Link href='#' variant='black' className='uppercase'>
-              Servicios
-            </Link>
-          </li >
-          <li className='flex items-center'>
-            <Link href='#' variant='black' className='uppercase'>
-              Sobre mi
-            </Link>
-          </li>
-          <li className='flex items-center'>
-            <Link href='#' variant='black' className='uppercase'>
-              Contacto
-            </Link>
-          </li>
-          <li className='flex items-center'>
-            <Link href='#' variant='button-outlined' className='uppercase'>
-              Agendar cita
-            </Link>
-          </li>
+          {links.map((link) => (
+            <li key={link.text} className='flex items-center'>
+              <Link
+                href={link.href}
+                variant={link.isCta ? 'button-outlined' : 'black'}
+                target={link.isCta ? '_blank' : '_self'}
+                className='uppercase'>
+                {link.text}
+              </Link>
+            </li>
+          ))}
         </ul>
       </Wrapper>
     </header>
