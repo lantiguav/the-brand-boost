@@ -16,9 +16,9 @@ export const ServicesSection = ({
 }: ServicesSectionProps) => {
   return (
     <section id={id}>
-      <Wrapper className='py-28'>
-        <h2 className='text-orange-dark text-5xl font-serif'>{title}</h2>
-        <div className='grid grid-cols-4 gap-10'>
+      <Wrapper className='py-20'>
+        <h2 className='text-orange-dark text-5xl font-serif mb-7'>{title}</h2>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
           {services.map((service) => (
             <ServiceCard key={service.id} {...service} />
           ))}

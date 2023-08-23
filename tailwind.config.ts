@@ -16,6 +16,9 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-open-sans)'],
         serif: ['var(--font-alice)'],
+      },
+      boxShadow: {
+        'regular' : '0px 0px 8px 0px #E1E1E1;'
       }
     },
     colors: {
