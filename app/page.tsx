@@ -1,3 +1,5 @@
+import { draftMode } from 'next/headers'
+
 import { Section } from '@/components/Section'
 import { performRequest } from '../lib/datocms'
 import { pageContentQuery } from './constants'
@@ -7,9 +9,11 @@ import { ServicesSection } from '@/components/ServicesSection'
 import { SectionType } from '@/types/common'
 
 export default async function Home() {
+  const { isEnabled } = draftMode()
+
   const {
     data: { landingPage },
-  } = await performRequest({ query: pageContentQuery })
+  } = await performRequest({ query: pageContentQuery, includeDrafts: isEnabled })
 
   const { sections } = landingPage
   const [servicesSection] = landingPage.servicesSection

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { draftMode } from 'next/headers'
+
 import { Alice, Open_Sans as OpenSans } from 'next/font/google'
 
 import { Analytics } from '@vercel/analytics/react'
@@ -31,9 +33,11 @@ const opensSans = OpenSans({
 })
 
 export default async function RootLayout({ children }: RootLayoutProps) {
+  const { isEnabled } = draftMode()
+
   const {
     data: { landingPage },
-  } = await performRequest({ query: navigationQuery })
+  } = await performRequest({ query: navigationQuery, includeDrafts: isEnabled })
 
   const [navigation] = landingPage.navigation
   const [cta] = navigation.cta
