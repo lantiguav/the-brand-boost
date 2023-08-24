@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     {
       label: 'Draft version',
       url: `${baseUrl}/api/draft?secret=${
-        process.env.NEXT_DATOCMS_PREVIEW_SECRET || ''
+        process.env.NEXT_DATOCMS_DRAFT_SECRET || ''
       }`,
     },
   ];
