@@ -14,15 +14,14 @@ export type ServiceType = {
   icon: ImageType
 }
 
-export type NavigationLinkType = {
-  text: string
-  href: string
-  isCta?: boolean
-}
-
 export type SectionType = {
   htmlId: string
   title: string
   image?: ImageType
   content: string
+}
+
+export type LinkType = {
+  text: string
+  url: string
 }

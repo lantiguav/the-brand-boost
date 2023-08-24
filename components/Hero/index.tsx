@@ -55,6 +55,7 @@ export const Hero = ({ title, subcopy, cta, image }: HeroProps) => {
             alt={image.alt ?? ''}
             width={image.width}
             height={image.height}
+            priority
           />
         </div>
       </Wrapper>

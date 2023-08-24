@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
-import { Alice, Open_Sans as OpenSans } from '@next/font/google'
+import { Alice, Open_Sans as OpenSans } from 'next/font/google'
 
 import { Analytics } from '@vercel/analytics/react'
 
 import { NavBar } from '@/components/NavBar'
 import { Footer } from '@/components/Footer'
 
+import { performRequest } from '@/lib/datocms'
+import { navigationQuery } from './constants'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -17,14 +19,32 @@ type RootLayoutProps = {
   children: React.ReactNode
 }
 
-const alice = Alice({ weight: '400', subsets: ['latin'], variable: '--font-alice' })
-const opensSans = OpenSans({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-open-sans' })
+const alice = Alice({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-alice',
+})
+const opensSans = OpenSans({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-open-sans',
+})
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const {
+    data: { landingPage },
+  } = await performRequest({ query: navigationQuery })
+
+  const [navigation] = landingPage.navigation
+  const [cta] = navigation.cta
+
+  console.log({ navigation })
+
   return (
     <html lang='en' className='overflow-x-clip'>
-      <body className={`${alice.variable} ${opensSans.variable} font-sans relative overflow-x-clip`}>
-        <NavBar />
+      <body
+        className={`${alice.variable} ${opensSans.variable} font-sans relative overflow-x-clip`}>
+        <NavBar links={navigation.links} logo={navigation.logo} cta={cta} />
         <main>{children}</main>
         <Footer />
         <Analytics />

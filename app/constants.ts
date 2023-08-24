@@ -49,3 +49,29 @@ query PageQuery {
     }
   }
 }`
+
+export const navigationQuery = `
+query NavigationQuery {
+  landingPage {
+    navigation {
+      links {
+        id
+        text
+        url
+      }
+      logo {
+        alt
+        url
+        title
+        width
+        height
+      }
+      cta {
+        id
+        text
+        url
+      }
+    }
+  }
+}
+`

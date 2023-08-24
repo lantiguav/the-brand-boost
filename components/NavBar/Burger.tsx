@@ -1,27 +1,33 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { NavigationLinkType } from '@/types/common'
+import { LinkType, NavigationLinkType } from '@/types/common'
 import { Link } from '../Link'
 
 type BurgerProps = {
-  links: NavigationLinkType[]
+  links: LinkType[]
+  cta: LinkType
 }
 
-export const Burger = ({ links }: BurgerProps) => {
+export const Burger = ({ links, cta }: BurgerProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    if(isOpen) {
-      document.querySelector('body')?.classList.add('h-screen', 'overflow-y-clip', 'sm:overflow-y-visible')
-      return;
+    if (isOpen) {
+      document
+        .querySelector('body')
+        ?.classList.add('h-screen', 'overflow-y-clip', 'sm:overflow-y-visible')
+      return
     }
 
-    document.querySelector('body')?.classList.remove('h-screen', 'overflow-y-clip','sm:overflow-y-visible')
-
+    document
+      .querySelector('body')
+      ?.classList.remove('h-screen', 'overflow-y-clip', 'sm:overflow-y-visible')
   }, [isOpen])
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement|HTMLDivElement>) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>
+  ) => {
     setIsOpen(!isOpen)
   }
 
@@ -57,14 +63,18 @@ export const Burger = ({ links }: BurgerProps) => {
           {links.map((link) => (
             <li key={link.text} className='flex items-center'>
               <Link
-                href={link.href}
-                variant={link.isCta ? 'button-outlined' : 'black'}
-                target={link.isCta ? '_blank' : '_self'}
+                href={link.url}
+                variant='black'
                 className='uppercase text-xl'>
                 {link.text}
               </Link>
             </li>
           ))}
+          <li className='flex items-center'>
+            <Link href={cta.url} variant='button-outlined' target='_blank' className='uppercase text-xl'>
+              {cta.text}
+            </Link>
+          </li>
         </ul>
       </div>
     </>
