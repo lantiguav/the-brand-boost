@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { LinkType, NavigationLinkType } from '@/types/common'
+import { LinkType } from '@/types/common'
 import { Link } from '../Link'
 
 type BurgerProps = {
