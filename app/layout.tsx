@@ -42,6 +42,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <html lang='en' className='overflow-x-clip'>
+      <head>
+        <link rel='icon' href='/favicon.svg' />
+      </head>
       <body
         className={`${alice.variable} ${opensSans.variable} font-sans relative overflow-x-clip`}>
         <NavBar links={navigation.links} logo={navigation.logo} cta={cta} />
