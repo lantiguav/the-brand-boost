@@ -10,13 +10,13 @@ export const Footer = () => {
         </span>
         <span className='px-3 lg:border-l'>
           Designed and developed by{' '}
-          <Link href='https://victorlantigua.com' variant='orange' target='_blank'>
+          <Link href='https://victorlantigua.com' variant='orange-darkest' target='_blank'>
             Victor Lantigua
           </Link>{' '}
         </span>
         <span className='pl-3 lg:border-l'>
           Online illustrations by{' '}
-          <Link href='https://storyset.com/online' variant='orange' target='_blank'>
+          <Link href='https://storyset.com/online' variant='orange-darkest' target='_blank'>
             Storyset
           </Link>{' '}
         </span>

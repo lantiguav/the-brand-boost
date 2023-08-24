@@ -25,16 +25,22 @@ export const Burger = ({ links, cta }: BurgerProps) => {
       ?.classList.remove('h-screen', 'overflow-y-clip', 'sm:overflow-y-visible')
   }, [isOpen])
 
-  const handleClick = (
+  const handleBurgerClick = (
     e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>
   ) => {
     setIsOpen(!isOpen)
   }
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsOpen(false)
+
+  }
+
   return (
     <>
       <button
-        onClick={handleClick}
+        title={ isOpen ? 'Close menu' : 'Open menu'}
+        onClick={handleBurgerClick}
         className='flex sm:hidden flex-col justify-center items-center gap-1 z-30'>
         <span
           className={`bg-black block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
@@ -54,7 +60,7 @@ export const Burger = ({ links, cta }: BurgerProps) => {
         className={`absolute sm:hidden bg-black inset-0 z-10 transition-all ${
           isOpen ? 'opacity-30' : 'hidden'
         }`}
-        onClick={handleClick}></div>
+        onClick={handleBurgerClick}></div>
       <div
         className={`absolute sm:hidden top-0 bottom-0 right-0 w-full max-w-xs bg-white z-20 transition-all ${
           isOpen ? 'translate-x-0' : 'translate-x-80'
@@ -65,7 +71,9 @@ export const Burger = ({ links, cta }: BurgerProps) => {
               <Link
                 href={link.url}
                 variant='black'
-                className='uppercase text-xl'>
+                className='uppercase text-xl'
+                onClick={handleLinkClick}
+                >
                 {link.text}
               </Link>
             </li>

@@ -16,14 +16,16 @@ export const NavBar = ({ logo, links, cta }: NavBarProps) => {
     <header className='w-full z-20'>
       <Wrapper className='flex justify-between py-2'>
         <div className='flex items-center'>
-          <Image
-            className='w-16'
-            src={logo.url}
-            width={logo.width}
-            height={logo.height}
-            alt={logo.alt ?? ''}
-            title={logo.title}
-          />
+          <Link href='#'>
+            <Image
+              className='w-16'
+              src={logo.url}
+              width={logo.width}
+              height={logo.height}
+              alt={logo.alt ?? ''}
+              title={logo.title}
+            />
+          </Link>
         </div>
         <Burger links={links} cta={cta} />
         <ul className='flex-row gap-6 uppercase hidden sm:flex'>
