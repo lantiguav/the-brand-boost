@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 
 import { NavBar } from '@/components/NavBar'
 import { Footer } from '@/components/Footer'
+import { DraftBanner } from '@/components/DraftBanner'
 
 import { performRequest } from '@/lib/datocms'
 import { navigationQuery } from './constants'
@@ -51,6 +52,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body
         className={`${alice.variable} ${opensSans.variable} font-sans relative overflow-x-clip`}>
+        <DraftBanner isDraftModeEnabled={isEnabled}/>
         <NavBar links={navigation.links} logo={navigation.logo} cta={cta} />
         <main>{children}</main>
         <Footer />

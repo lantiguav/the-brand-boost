@@ -41,7 +41,7 @@ export const Burger = ({ links, cta }: BurgerProps) => {
       <button
         title={ isOpen ? 'Close menu' : 'Open menu'}
         onClick={handleBurgerClick}
-        className='flex sm:hidden flex-col justify-center items-center gap-1 z-30'>
+        className='flex sm:hidden flex-col justify-center items-center gap-1 z-40'>
         <span
           className={`bg-black block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
             isOpen ? 'rotate-45 translate-y-2' : '-translate-y-0.5'
@@ -62,7 +62,7 @@ export const Burger = ({ links, cta }: BurgerProps) => {
         }`}
         onClick={handleBurgerClick}></div>
       <div
-        className={`absolute sm:hidden top-0 bottom-0 right-0 w-full max-w-xs bg-white z-20 transition-all ${
+        className={`absolute sm:hidden top-0 bottom-0 right-0 w-full max-w-xs bg-white z-30 transition-all ${
           isOpen ? 'translate-x-0' : 'translate-x-80'
         }`}>
         <ul className='flex flex-col gap-6 uppercase p-8 pt-20'>

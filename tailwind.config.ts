@@ -19,13 +19,14 @@ const config: Config = {
         serif: ['var(--font-alice)'],
       },
       boxShadow: {
-        'regular' : '0px 0px 8px 0px #E1E1E1;'
+        'regular' : '0px 0px 8px 0px #E3E3E3;'
       }
     },
     colors: {
       transparent: 'transparent',
       black: '#000',
       white: '#FFF',
+      grey: '#E3E3E3',
       orange: {
         'light': '#F59908',
         'medium': '#E65616',
