@@ -35,7 +35,7 @@ export async function POST(request: Request) {
   const previewLinks = [
     {
       label: 'Published version',
-      url: `${baseUrl}`,
+      url: `${baseUrl}/api/exit-draft`,
     },
     {
       label: 'Draft version',
