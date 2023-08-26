@@ -52,6 +52,11 @@ query PageQuery {
 
 export const navigationQuery = `
 query NavigationQuery {
+  _site {
+    favicon {
+      url
+    }
+  }
   landingPage {
     navigation {
       links {

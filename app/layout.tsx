@@ -37,18 +37,18 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const { isEnabled } = draftMode()
 
   const {
-    data: { landingPage },
+    data: { landingPage, _site },
   } = await performRequest({ query: navigationQuery, includeDrafts: isEnabled })
 
   const [navigation] = landingPage.navigation
   const [cta] = navigation.cta
 
-  console.log({ navigation })
+  console.log({ navigation, _site })
 
   return (
     <html lang='en' className='overflow-x-clip'>
       <head>
-        <link rel='icon' href='/favicon.svg' />
+        <link rel='icon' href={_site?.favicon?.url ?? '/favicon.svg'} />
       </head>
       <body
         className={`${alice.variable} ${opensSans.variable} font-sans relative overflow-x-clip`}>
