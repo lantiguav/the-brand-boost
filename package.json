@@ -2,6 +2,9 @@
   "name": "the-brand-boost",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "20.5.1",
+    "@types/node": "22.0.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@vercel/analytics": "^1.0.2",
